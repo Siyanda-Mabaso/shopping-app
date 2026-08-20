@@ -5,13 +5,17 @@ interface InputProps  {
   type?: string;
   placeholder?: string;
   id: string;
+  value?:string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 const Input = ({
   label,
-  type = "text",
+  type ,
   placeholder,
   id,
+  value,
+  onChange
 }: InputProps) => {
   return (
     <div className={styles.inputGroup}>
@@ -24,9 +28,12 @@ const Input = ({
         type={type}
         placeholder={placeholder}
         className={styles.input}
+        value={value}
+        onChange={onChange}
       />
     </div>
   );
+      
 };
 
 export default Input;

@@ -33,6 +33,7 @@ const Profile = () => {
                 label="Name"
                 type="text"
                 placeholder="Enter your name"
+                
               />
 
               <Input
