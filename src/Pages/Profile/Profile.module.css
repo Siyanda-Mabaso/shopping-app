@@ -1,0 +1,126 @@
+.profilePage {
+  min-height: 100vh;
+  background-color: #f5f7f5;
+}
+
+.main {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+/* Page heading */
+
+.heading {
+  margin-bottom: 30px;
+}
+
+.heading h1 {
+  margin: 0 0 8px;
+
+  color: #333333;
+  font-size: 28px;
+}
+
+.heading p {
+  margin: 0;
+
+  color: #777777;
+  font-size: 15px;
+}
+
+/* Profile card */
+
+.profileCard {
+  width: 700px;
+  padding: 35px;
+
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
+}
+
+/* Profile header */
+
+.profileHeader {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+
+  border-bottom: 1px solid #eeeeee;
+}
+
+.profileIcon {
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #e8f5e9;
+  border-radius: 50%;
+
+  font-size: 24px;
+}
+
+.profileHeader h2 {
+  margin: 0 0 5px;
+
+  color: #333333;
+  font-size: 20px;
+}
+
+.profileHeader p {
+  margin: 0;
+
+  color: #777777;
+  font-size: 14px;
+}
+
+/* Form */
+
+.form {
+  width: 100%;
+}
+
+.formRow {
+  display: flex;
+  gap: 20px;
+}
+
+.formRow > * {
+  flex: 1;
+}
+
+/* Password section */
+
+.passwordSection {
+  margin-top: 10px;
+  padding-top: 20px;
+
+  border-top: 1px solid #eeeeee;
+}
+
+.passwordSection h3 {
+  margin: 0 0 20px;
+
+  color: #333333;
+  font-size: 17px;
+}
+
+/* Actions */
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+
+  margin-top: 10px;
+}

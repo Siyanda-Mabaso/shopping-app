@@ -1,0 +1,87 @@
+.signUpPage {
+  min-height: 100vh;
+  padding: 40px 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #f5f7f5;
+  box-sizing: border-box;
+}
+
+.signUpCard {
+  width: 440px;
+  padding: 40px;
+
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+
+  box-sizing: border-box;
+}
+
+/* Logo */
+
+.logo {
+  margin-bottom: 30px;
+
+  color: #2e7d32;
+  font-size: 28px;
+  font-weight: 700;
+
+  text-align: center;
+}
+
+/* Heading */
+
+.heading {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.heading h1 {
+  margin: 0 0 10px;
+
+  color: #333333;
+  font-size: 26px;
+}
+
+.heading p {
+  margin: 0;
+
+  color: #777777;
+  font-size: 14px;
+}
+
+/* Form */
+
+.form {
+  width: 100%;
+}
+
+/* Login link */
+
+.loginLink {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.loginLink p {
+  margin: 0;
+
+  color: #777777;
+  font-size: 14px;
+}
+
+.loginLink a {
+  color: #2e7d32;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.loginLink a:hover {
+  text-decoration: underline;
+} 

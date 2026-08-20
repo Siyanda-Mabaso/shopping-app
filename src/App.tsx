@@ -1,9 +1,23 @@
-import React from 'react'
-import { Header } from './Components/Header/Header'
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-export const App = () => {
+import Login from "./Pages/Login/Login";
+import SignUp from "./Pages/SignUp/SignUp";
+import Home from "./Pages/Home/Home";
+import Profile from "./Pages/Profile/Profile";
+
+const App = () => {
   return (
-  
-    <Header/>
-  )
-}
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Navigate to="/login" />} />
+
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/profile" element={<Profile />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
+
+export default App;
