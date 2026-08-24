@@ -7,6 +7,38 @@
       "email": "test@gmail.com",
       "password": "jhfghfc",
       "id": "dJVQ-PiJVqg"
+    },
+    {
+      "name": "",
+      "surname": "",
+      "number": "",
+      "email": "",
+      "password": "",
+      "id": "FOVddbzGNXU"
+    },
+    {
+      "name": "e",
+      "surname": "e",
+      "number": "e",
+      "email": "e@gmail",
+      "password": "e",
+      "id": "lm4CktEmUH8"
+    },
+    {
+      "name": "zama",
+      "surname": "ngcobo",
+      "number": "07123456789",
+      "email": "zama@gmail.com",
+      "password": "zama",
+      "id": "6Ezl2Xb-drQ"
+    },
+    {
+      "name": "Neliswa",
+      "surname": "Ngcobo",
+      "number": "0845774210",
+      "email": "neliswangcobo141@gmail.com",
+      "password": "Neliswa123",
+      "id": "TapDeVX8yc0"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

@@ -5,7 +5,7 @@ import {
 } from "@reduxjs/toolkit";
 import axios from "axios";
 
-interface SignInState {
+export interface SignInState {
   name: string;
   surname: string;
   number: string;

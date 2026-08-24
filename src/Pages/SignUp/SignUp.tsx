@@ -14,7 +14,7 @@ setPassword,
 // setConfirmPassword,
 signup,
 resetForm,
-} from "../../Store/SignUp";
+} from "../../ReduxSlice/SignUp";
 
 
 
