@@ -2,8 +2,12 @@ import Header from "../../Components/Header/Header";
 import Button from "../../Components/Button/Button";
 import Input from "../../Components/Input/Input";
 import styles from "./Profile.module.css";
+import {useDispatch, useSelector} from "react-redux";
+import type { RootState, AppDispatch } from "../../Store/store";
 
 const Profile = () => {
+  const currentUser = useSelector((state: RootState) => state.login.user);
+
   return (
     <div className={styles.profilePage}>
       <Header />
@@ -33,7 +37,7 @@ const Profile = () => {
                 label="Name"
                 type="text"
                 placeholder="Enter your name"
-                
+                value={currentUser?.name}
               />
 
               <Input
@@ -41,6 +45,7 @@ const Profile = () => {
                 label="Surname"
                 type="text"
                 placeholder="Enter your surname"
+                value={currentUser?.surname || ""}
               />
             </div>
 
@@ -49,6 +54,7 @@ const Profile = () => {
               label="Email"
               type="email"
               placeholder="Enter your email"
+              value={currentUser?.email || ""}
             />
 
             <Input
@@ -56,6 +62,7 @@ const Profile = () => {
               label="Cell Number"
               type="tel"
               placeholder="Enter your cell number"
+              value={currentUser?.number || ""}
             />
 
             <div className={styles.passwordSection}>
