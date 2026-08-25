@@ -9,14 +9,6 @@
       "id": "dJVQ-PiJVqg"
     },
     {
-      "name": "",
-      "surname": "",
-      "number": "",
-      "email": "",
-      "password": "",
-      "id": "FOVddbzGNXU"
-    },
-    {
       "name": "e",
       "surname": "e",
       "number": "e",
@@ -39,7 +31,17 @@
       "email": "neliswangcobo141@gmail.com",
       "password": "Neliswa123",
       "id": "TapDeVX8yc0"
+    },
+    {
+      "name": "khethiwe",
+      "surname": "ngema",
+      "number": "0606669273",
+      "email": "khethy@gmail.com",
+      "password": "khethy",
+      "id": "SZo9O5BYgLc"
     }
+    
+
   ],
   "lists": [],
   "$schema": "./node_modules/json-server/schema.json"

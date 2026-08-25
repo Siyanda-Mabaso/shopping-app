@@ -65,7 +65,7 @@ const Profile = () => {
               value={currentUser?.number || ""}
             />
 
-            <div className={styles.passwordSection}>
+            {/* <div className={styles.passwordSection}>
               <h3>Update Password</h3>
 
               <Input
@@ -74,7 +74,7 @@ const Profile = () => {
                 type="password"
                 placeholder="Enter your new password"
               />
-            </div>
+            </div> */}
 
             <div className={styles.actions}>
               <Button type="submit">

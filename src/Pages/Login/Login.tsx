@@ -28,7 +28,7 @@ const Login = () => {
       navigate("/home");
     }
     if (loginThunk.rejected.match(credentials)) {
-      alert("Login failed: Invalid email or password");
+      alert(credentials.payload as string || "Login failed");
     }
   }
 
