@@ -14,7 +14,7 @@ export interface SignInState {
   // confirmPassword: string;
   isLoading: boolean;
   error: string | null;
-  id?: number;
+  id?: string;
 }
 
 const initialState: SignInState = {

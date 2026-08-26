@@ -1,10 +1,14 @@
 import type { RootState } from "../Store/store";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-export interface Lists{
+import type { ListItem } from "./ListItemSlice";
+
+export interface Lists {
 name: string;
 numberOfItems: number;
+description :string;
 id?:number;
 userId?: string;
+items:ListItem[]
 }
 
 interface ListState {
@@ -12,6 +16,7 @@ interface ListState {
   isLoading: boolean;
   error: string | null;
 }
+
 const initialState: ListState = {
   lists: [],
   isLoading: false,
@@ -74,7 +79,43 @@ export const addListThunk = createAsyncThunk(
                 const listsData = await response.json();
                 return listsData as Lists[];
             } catch (error) {
-                return rejectWithValue("Failed to fetch lists");
+                return rejectWithValue("Failed to fetch lists");    
             }
         }
     );
+    
+    const listSlice = createSlice({
+    name: "lists",
+    initialState,
+    reducers: {
+      
+        },
+        extraReducers:(builder)=>{
+            builder
+
+            .addCase(fetchListsThunk.pending,(state)=>{
+                state.isLoading= true
+                state.error=null
+            })
+
+            .addCase(fetchListsThunk.fulfilled,(state, action)=>{
+                state.isLoading=false
+                state.lists=action.payload
+                state.error= null
+            })   
+        
+            .addCase(fetchListsThunk.rejected,(state,action)=>{
+                state.isLoading=false
+                state.error=action.payload as string
+            })
+
+            builder
+            .addCase(addListThunk.fulfilled,(state,action)=>{
+                state.lists.push(action.payload)
+            })
+        }
+    })
+
+
+ export const {  } = listSlice.actions;
+ export default listSlice.reducer;

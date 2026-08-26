@@ -40,9 +40,16 @@
       "password": "khethy",
       "id": "SZo9O5BYgLc"
     }
-    
-
   ],
-  "lists": [],
+  "lists": [
+    {
+      "userId": "6Ezl2Xb-drQ",
+      "name": "ggg",
+      "description": "ggg",
+      "numberOfItems": 0,
+      "items": [],
+      "id": "tQjwX5Pso0M"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }
