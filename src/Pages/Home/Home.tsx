@@ -1,6 +1,7 @@
 import Header from "../../Components/Header/Header";
 import Button from "../../Components/Button/Button";
 import styles from "./Home.module.css";
+import {addListThunk} from "./../../ReduxSlice/ListSlice"
 
 const Home = () => {
   return (
