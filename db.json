@@ -49,6 +49,76 @@
       "numberOfItems": 0,
       "items": [],
       "id": "tQjwX5Pso0M"
+    },
+    {
+      "userId": "6Ezl2Xb-drQ",
+      "name": "jhjh",
+      "description": "ki",
+      "numberOfItems": 0,
+      "items": [],
+      "id": "v0nELr2yt08"
+    },
+    {
+      "userId": "6Ezl2Xb-drQ",
+      "name": "hh",
+      "description": "gg",
+      "numberOfItems": 0,
+      "items": [],
+      "id": "rS8Dpx8pdLo"
+    },
+    {
+      "userId": "6Ezl2Xb-drQ",
+      "name": "SIyanda list",
+      "description": "list",
+      "numberOfItems": 0,
+      "createdAt": "2026-08-26T13:45:59.325Z",
+      "items": [],
+      "id": "ggzcjKPdxog"
+    },
+    {
+      "userId": "6Ezl2Xb-drQ",
+      "name": "fnh",
+      "description": "fnhhnfcx",
+      "numberOfItems": 0,
+      "createdAt": "2026-08-26T13:46:19.261Z",
+      "items": [],
+      "id": "G6dtPiKktjs"
+    },
+    {
+      "userId": "6Ezl2Xb-drQ",
+      "name": "Siyanda shopping List",
+      "description": "ss",
+      "numberOfItems": 0,
+      "createdAt": "2026-08-26T13:50:26.109Z",
+      "items": [],
+      "id": "4wsK29AdhUo"
+    },
+    {
+      "userId": "6Ezl2Xb-drQ",
+      "name": "Groceries",
+      "description": "Grocery",
+      "numberOfItems": 0,
+      "createdAt": "2026-08-26T13:51:28.254Z",
+      "items": [],
+      "id": "tKh1jeVhcn4"
+    },
+    {
+      "userId": "6Ezl2Xb-drQ",
+      "name": "Grocer",
+      "description": "cxcx",
+      "numberOfItems": 0,
+      "createdAt": "2026-08-26T13:51:38.182Z",
+      "items": [],
+      "id": "s01RsEdzsJA"
+    },
+    {
+      "userId": "6Ezl2Xb-drQ",
+      "name": "tgt",
+      "description": "gg",
+      "numberOfItems": 0,
+      "createdAt": "2026-08-26T13:55:45.733Z",
+      "items": [],
+      "id": "ka-JpFPG8y4"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

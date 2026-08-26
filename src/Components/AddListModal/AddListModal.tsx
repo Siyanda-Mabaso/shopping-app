@@ -1,6 +1,5 @@
 import {useState}from 'react'
 import styles from './AddListModal.module.css'
-// import Input from '../Input/Input';
 import type{ RootState } from '../../Store/store';
 import { useDispatch,useSelector } from 'react-redux';
 import { addListThunk } from '../../ReduxSlice/ListSlice';
@@ -34,7 +33,9 @@ export const AddListModal = ({
                 name: name,
                 description: description,
                 numberOfItems: 0,
+                createdAt: new Date().toISOString (),
                 items: [],
+
             }) as any )
             
             if (addListThunk.fulfilled.match(response)){

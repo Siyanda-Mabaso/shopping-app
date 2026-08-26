@@ -2,8 +2,8 @@ import Header from "../../Components/Header/Header";
 import Button from "../../Components/Button/Button";
 import Input from "../../Components/Input/Input";
 import styles from "./Profile.module.css";
-import {useDispatch, useSelector} from "react-redux";
-import type { RootState, AppDispatch } from "../../Store/store";
+import { useSelector} from "react-redux";
+import type { RootState } from "../../Store/store";
 
 const Profile = () => {
   const currentUser = useSelector((state: RootState) => state.login.user);

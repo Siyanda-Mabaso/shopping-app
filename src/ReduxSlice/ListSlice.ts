@@ -6,8 +6,9 @@ export interface Lists {
 name: string;
 numberOfItems: number;
 description :string;
-id?:number;
+id?:string;
 userId?: string;
+createdAt: string,
 items:ListItem[]
 }
 

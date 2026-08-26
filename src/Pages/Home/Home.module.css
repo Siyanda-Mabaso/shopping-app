@@ -77,3 +77,8 @@
   font-size: 15px;
   line-height: 1.6;
 }
+.listGrid {
+display: flex;
+flex-direction: column;
+gap: 12px;
+}
