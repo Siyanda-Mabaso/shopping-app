@@ -18,7 +18,7 @@ const initialState: ListState = {
   error: null,
 };
 
-export const addListsThunk = createAsyncThunk(
+export const addListThunk = createAsyncThunk(
     "lists/addLists",
     async (newList: Omit<Lists,"id">,{getState, rejectWithValue})=>{
         try {
@@ -47,4 +47,34 @@ export const addListsThunk = createAsyncThunk(
             return rejectWithValue("Failed to add list");
         }
     }
-);
+      );
+
+    export const fetchListsThunk = createAsyncThunk(
+        "lists/fetchLists",
+        async (_, { getState, rejectWithValue }) => {
+            try {
+                const state = getState() as RootState;
+                const userId = state.login.user?.id;
+
+                if (!userId) {
+                    return rejectWithValue("User not logged in");
+                }
+
+                const response = await fetch("http://localhost:3000/lists", {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                });
+
+                if (!response.ok) {
+                    throw new Error("Failed to fetch lists");
+                }
+
+                const listsData = await response.json();
+                return listsData as Lists[];
+            } catch (error) {
+                return rejectWithValue("Failed to fetch lists");
+            }
+        }
+    );
