@@ -39,6 +39,30 @@
       "email": "khethy@gmail.com",
       "password": "khethy",
       "id": "SZo9O5BYgLc"
+    },
+    {
+      "name": "Test",
+      "surname": "Tes01",
+      "number": "123456",
+      "email": "Test01@gmail.com",
+      "password": "Test01",
+      "id": "92qGn6hoQ4A"
+    },
+    {
+      "name": "Test",
+      "surname": "Tes01",
+      "number": "123456",
+      "email": "Test01@gmail.com",
+      "password": "",
+      "id": "u5QxPctbOls"
+    },
+    {
+      "name": "sabelo",
+      "surname": "gumede",
+      "number": "12365",
+      "email": "sabelo@gmail.com",
+      "password": "1111",
+      "id": "jsSptzO_uBA"
     }
   ],
   "lists": [
@@ -119,6 +143,87 @@
       "createdAt": "2026-08-26T13:55:45.733Z",
       "items": [],
       "id": "ka-JpFPG8y4"
+    },
+    {
+      "userId": "6Ezl2Xb-drQ",
+      "name": "fgf",
+      "description": "dd",
+      "numberOfItems": 0,
+      "createdAt": "2026-08-26T14:06:25.559Z",
+      "items": [],
+      "id": "OgZG4MCGhz8"
+    },
+    {
+      "userId": "6Ezl2Xb-drQ",
+      "name": "Groceries",
+      "description": "ony friuits",
+      "numberOfItems": 0,
+      "createdAt": "2026-08-27T06:37:54.391Z",
+      "items": [],
+      "id": "TW04z67xueY"
+    },
+    {
+      "userId": "92qGn6hoQ4A",
+      "name": "groceries",
+      "description": "fresh fruits",
+      "numberOfItems": 0,
+      "createdAt": "2026-08-27T06:41:44.088Z",
+      "items": [],
+      "id": "sN5veb1eC7w"
+    },
+    {
+      "userId": "92qGn6hoQ4A",
+      "name": "gt54t",
+      "description": "t45",
+      "numberOfItems": 0,
+      "createdAt": "2026-08-27T06:44:37.728Z",
+      "items": [],
+      "id": "FzgOG8l2YgM"
+    },
+    {
+      "userId": "92qGn6hoQ4A",
+      "name": "yy",
+      "description": "yy",
+      "numberOfItems": 0,
+      "createdAt": "2026-08-27T06:54:05.488Z",
+      "items": [],
+      "id": "sJUcR6Mo2DI"
+    },
+    {
+      "userId": "6Ezl2Xb-drQ",
+      "name": "Groceries",
+      "description": "fresh fruits",
+      "numberOfItems": 0,
+      "createdAt": "2026-08-27T07:27:34.355Z",
+      "items": [],
+      "id": "r4fVMZdw9x8"
+    },
+    {
+      "userId": "6Ezl2Xb-drQ",
+      "name": "rf",
+      "description": "gfr",
+      "numberOfItems": 0,
+      "createdAt": "2026-08-27T07:57:04.733Z",
+      "items": [],
+      "id": "dyGHyJsXgVs"
+    },
+    {
+      "userId": "6Ezl2Xb-drQ",
+      "name": "fr",
+      "description": "fref",
+      "numberOfItems": 0,
+      "createdAt": "2026-08-27T07:59:39.068Z",
+      "items": [],
+      "id": "LC0TRHR_LZ0"
+    },
+    {
+      "userId": "6Ezl2Xb-drQ",
+      "name": "hy",
+      "description": "hgy",
+      "numberOfItems": 0,
+      "createdAt": "2026-08-27T08:37:22.223Z",
+      "items": [],
+      "id": "e3vX9Zy6c1M"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

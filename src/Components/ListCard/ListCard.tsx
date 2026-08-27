@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styles from './ListCard.module.css';
 import type { Lists } from '../../ReduxSlice/ListSlice';
 
+
 export interface ShoppingList {
   list: Lists;
 }
@@ -13,7 +14,7 @@ type ListCardProps = {
   onClick: (id: string) => void;
 };
 
-export const ListCard: React.FC<ListCardProps> = ({ list, onDelete, onEdit, }) => {
+export const ListCard: React.FC<ListCardProps> = ({ list, onDelete, onEdit,onClick, }) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const formattedDate = list.createdAt

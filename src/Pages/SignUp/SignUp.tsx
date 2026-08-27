@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "../../Components/Button/Button";
 import Input from "../../Components/Input/Input";
 import styles from "./SignUp.module.css";
@@ -22,6 +22,7 @@ resetForm,
 const SignUp = () => {
 
   const dispatch = useDispatch<AppDispatch>();
+  const navigate =useNavigate();
 
   const signUpData = useSelector((state: RootState) => state.signUp);
   console.log(signUpData.email);
@@ -33,7 +34,9 @@ const SignUp = () => {
   await dispatch(signup(signUpData)).unwrap();
 
   dispatch(resetForm());
-  } catch (error) {
+  navigate("/login")
+  } 
+  catch (error) {
   console.error("Signup failed:", error);
   }
   }

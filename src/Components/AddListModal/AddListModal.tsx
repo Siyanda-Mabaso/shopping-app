@@ -66,9 +66,8 @@ export const AddListModal = ({
 
             <div className={styles.actions}>
                 <button onClick={onClose}>Cancel</button>
-                <button onClick={handleSubmit}>
-                    Create
-                </button>
+
+                <button onClick={handleSubmit}>Create</button>
 
             </div>
     
