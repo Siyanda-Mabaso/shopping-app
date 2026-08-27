@@ -1,229 +1,77 @@
 {
   "users": [
     {
-      "name": "tyhhg",
-      "surname": "hy",
-      "number": "hg",
-      "email": "test@gmail.com",
-      "password": "jhfghfc",
-      "id": "dJVQ-PiJVqg"
-    },
-    {
-      "name": "e",
-      "surname": "e",
-      "number": "e",
-      "email": "e@gmail",
-      "password": "e",
-      "id": "lm4CktEmUH8"
-    },
-    {
       "name": "zama",
       "surname": "ngcobo",
-      "number": "07123456789",
+      "number": "0000",
       "email": "zama@gmail.com",
       "password": "zama",
-      "id": "6Ezl2Xb-drQ"
-    },
-    {
-      "name": "Neliswa",
-      "surname": "Ngcobo",
-      "number": "0845774210",
-      "email": "neliswangcobo141@gmail.com",
-      "password": "Neliswa123",
-      "id": "TapDeVX8yc0"
-    },
-    {
-      "name": "khethiwe",
-      "surname": "ngema",
-      "number": "0606669273",
-      "email": "khethy@gmail.com",
-      "password": "khethy",
-      "id": "SZo9O5BYgLc"
-    },
-    {
-      "name": "Test",
-      "surname": "Tes01",
-      "number": "123456",
-      "email": "Test01@gmail.com",
-      "password": "Test01",
-      "id": "92qGn6hoQ4A"
-    },
-    {
-      "name": "Test",
-      "surname": "Tes01",
-      "number": "123456",
-      "email": "Test01@gmail.com",
-      "password": "",
-      "id": "u5QxPctbOls"
-    },
-    {
-      "name": "sabelo",
-      "surname": "gumede",
-      "number": "12365",
-      "email": "sabelo@gmail.com",
-      "password": "1111",
-      "id": "jsSptzO_uBA"
+      "id": "jUTmRqY8eg0"
     }
   ],
   "lists": [
     {
-      "userId": "6Ezl2Xb-drQ",
-      "name": "ggg",
-      "description": "ggg",
+      "userId": "jUTmRqY8eg0",
+      "name": "Fruit6s",
+      "description": "Fruits",
       "numberOfItems": 0,
+      "createdAt": "2026-08-27T09:21:39.698Z",
       "items": [],
-      "id": "tQjwX5Pso0M"
+      "id": "55kBtAgpbfk"
     },
     {
-      "userId": "6Ezl2Xb-drQ",
-      "name": "jhjh",
-      "description": "ki",
+      "userId": "jUTmRqY8eg0",
+      "name": "vd",
+      "description": "dcv",
       "numberOfItems": 0,
+      "createdAt": "2026-08-27T09:44:51.515Z",
       "items": [],
-      "id": "v0nELr2yt08"
+      "id": "XegBG_2brb0"
     },
     {
-      "userId": "6Ezl2Xb-drQ",
-      "name": "hh",
-      "description": "gg",
+      "userId": "jUTmRqY8eg0",
+      "name": "csxxc",
+      "description": "csx",
       "numberOfItems": 0,
+      "createdAt": "2026-08-27T09:46:13.123Z",
       "items": [],
-      "id": "rS8Dpx8pdLo"
+      "id": "jO3WerQDzsc"
     },
     {
-      "userId": "6Ezl2Xb-drQ",
-      "name": "SIyanda list",
-      "description": "list",
+      "userId": "jUTmRqY8eg0",
+      "name": "cvd",
+      "description": "cc",
       "numberOfItems": 0,
-      "createdAt": "2026-08-26T13:45:59.325Z",
+      "createdAt": "2026-08-27T09:55:54.700Z",
       "items": [],
-      "id": "ggzcjKPdxog"
+      "id": "OloM7mTUhCA"
     },
     {
-      "userId": "6Ezl2Xb-drQ",
-      "name": "fnh",
-      "description": "fnhhnfcx",
+      "userId": "jUTmRqY8eg0",
+      "name": "tt",
+      "description": "tt",
       "numberOfItems": 0,
-      "createdAt": "2026-08-26T13:46:19.261Z",
+      "createdAt": "2026-08-27T11:32:03.613Z",
       "items": [],
-      "id": "G6dtPiKktjs"
+      "id": "rDqzNfrSTcI"
     },
     {
-      "userId": "6Ezl2Xb-drQ",
-      "name": "Siyanda shopping List",
-      "description": "ss",
+      "userId": "jUTmRqY8eg0",
+      "name": "errf",
+      "description": "er",
       "numberOfItems": 0,
-      "createdAt": "2026-08-26T13:50:26.109Z",
+      "createdAt": "2026-08-27T13:02:50.571Z",
       "items": [],
-      "id": "4wsK29AdhUo"
+      "id": "p56ojgGZXWg"
     },
     {
-      "userId": "6Ezl2Xb-drQ",
-      "name": "Groceries",
-      "description": "Grocery",
+      "userId": "jUTmRqY8eg0",
+      "name": "3e",
+      "description": "e3e",
       "numberOfItems": 0,
-      "createdAt": "2026-08-26T13:51:28.254Z",
+      "createdAt": "2026-08-27T13:02:58.691Z",
       "items": [],
-      "id": "tKh1jeVhcn4"
-    },
-    {
-      "userId": "6Ezl2Xb-drQ",
-      "name": "Grocer",
-      "description": "cxcx",
-      "numberOfItems": 0,
-      "createdAt": "2026-08-26T13:51:38.182Z",
-      "items": [],
-      "id": "s01RsEdzsJA"
-    },
-    {
-      "userId": "6Ezl2Xb-drQ",
-      "name": "tgt",
-      "description": "gg",
-      "numberOfItems": 0,
-      "createdAt": "2026-08-26T13:55:45.733Z",
-      "items": [],
-      "id": "ka-JpFPG8y4"
-    },
-    {
-      "userId": "6Ezl2Xb-drQ",
-      "name": "fgf",
-      "description": "dd",
-      "numberOfItems": 0,
-      "createdAt": "2026-08-26T14:06:25.559Z",
-      "items": [],
-      "id": "OgZG4MCGhz8"
-    },
-    {
-      "userId": "6Ezl2Xb-drQ",
-      "name": "Groceries",
-      "description": "ony friuits",
-      "numberOfItems": 0,
-      "createdAt": "2026-08-27T06:37:54.391Z",
-      "items": [],
-      "id": "TW04z67xueY"
-    },
-    {
-      "userId": "92qGn6hoQ4A",
-      "name": "groceries",
-      "description": "fresh fruits",
-      "numberOfItems": 0,
-      "createdAt": "2026-08-27T06:41:44.088Z",
-      "items": [],
-      "id": "sN5veb1eC7w"
-    },
-    {
-      "userId": "92qGn6hoQ4A",
-      "name": "gt54t",
-      "description": "t45",
-      "numberOfItems": 0,
-      "createdAt": "2026-08-27T06:44:37.728Z",
-      "items": [],
-      "id": "FzgOG8l2YgM"
-    },
-    {
-      "userId": "92qGn6hoQ4A",
-      "name": "yy",
-      "description": "yy",
-      "numberOfItems": 0,
-      "createdAt": "2026-08-27T06:54:05.488Z",
-      "items": [],
-      "id": "sJUcR6Mo2DI"
-    },
-    {
-      "userId": "6Ezl2Xb-drQ",
-      "name": "Groceries",
-      "description": "fresh fruits",
-      "numberOfItems": 0,
-      "createdAt": "2026-08-27T07:27:34.355Z",
-      "items": [],
-      "id": "r4fVMZdw9x8"
-    },
-    {
-      "userId": "6Ezl2Xb-drQ",
-      "name": "rf",
-      "description": "gfr",
-      "numberOfItems": 0,
-      "createdAt": "2026-08-27T07:57:04.733Z",
-      "items": [],
-      "id": "dyGHyJsXgVs"
-    },
-    {
-      "userId": "6Ezl2Xb-drQ",
-      "name": "fr",
-      "description": "fref",
-      "numberOfItems": 0,
-      "createdAt": "2026-08-27T07:59:39.068Z",
-      "items": [],
-      "id": "LC0TRHR_LZ0"
-    },
-    {
-      "userId": "6Ezl2Xb-drQ",
-      "name": "hy",
-      "description": "hgy",
-      "numberOfItems": 0,
-      "createdAt": "2026-08-27T08:37:22.223Z",
-      "items": [],
-      "id": "e3vX9Zy6c1M"
+      "id": "WTCR3YVSIu8"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
