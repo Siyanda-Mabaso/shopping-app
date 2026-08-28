@@ -6,72 +6,92 @@
       "number": "0000",
       "email": "zama@gmail.com",
       "password": "zama",
-      "id": "jUTmRqY8eg0"
+      "id": "bfPGpjzc9VI"
+    },
+    {
+      "name": "syanda",
+      "surname": "mabaso",
+      "number": "07123456789",
+      "email": "syandamabaso39@gmail.com",
+      "password": "syanda",
+      "id": "3VABK7IGkFw"
     }
   ],
   "lists": [
     {
-      "userId": "jUTmRqY8eg0",
-      "name": "Fruit6s",
-      "description": "Fruits",
-      "numberOfItems": 0,
-      "createdAt": "2026-08-27T09:21:39.698Z",
-      "items": [],
-      "id": "55kBtAgpbfk"
+      "userId": "1",
+      "name": "grosa",
+      "notes": "",
+      "category": "General",
+      "items": [
+        {
+          "id": "1787917468244",
+          "name": "milk",
+          "quantity": 5,
+          "completed": false
+        },
+        {
+          "id": "1787917480756",
+          "name": "milk",
+          "quantity": 5,
+          "completed": false
+        },
+        {
+          "id": "1787917485661",
+          "name": "chese",
+          "quantity": 5,
+          "completed": false
+        }
+      ],
+      "createdAt": "2026-08-28T11:44:21.996Z",
+      "id": "6GJDjh3q8oA"
     },
     {
-      "userId": "jUTmRqY8eg0",
-      "name": "vd",
-      "description": "dcv",
-      "numberOfItems": 0,
-      "createdAt": "2026-08-27T09:44:51.515Z",
-      "items": [],
-      "id": "XegBG_2brb0"
+      "userId": "1",
+      "name": "fruit",
+      "notes": "",
+      "category": "General",
+      "items": [
+        {
+          "id": "1787917558237",
+          "name": "aplerd",
+          "quantity": 5,
+          "completed": false
+        },
+        {
+          "id": "1787917565629",
+          "name": "mango",
+          "quantity": 5,
+          "completed": false
+        }
+      ],
+      "createdAt": "2026-08-28T11:45:45.052Z",
+      "id": "pbIv1Lc8ayg"
     },
     {
-      "userId": "jUTmRqY8eg0",
-      "name": "csxxc",
-      "description": "csx",
-      "numberOfItems": 0,
-      "createdAt": "2026-08-27T09:46:13.123Z",
-      "items": [],
-      "id": "jO3WerQDzsc"
+      "userId": "3VABK7IGkFw",
+      "name": "Weakly Grossa",
+      "notes": "",
+      "category": "General",
+      "items": [
+        {
+          "id": "1787918790894",
+          "name": "milk",
+          "quantity": 89,
+          "completed": false
+        }
+      ],
+      "createdAt": "2026-08-28T12:04:31.718Z",
+      "id": "dhdQ02kuoi8"
     },
     {
-      "userId": "jUTmRqY8eg0",
-      "name": "cvd",
-      "description": "cc",
-      "numberOfItems": 0,
-      "createdAt": "2026-08-27T09:55:54.700Z",
+      "userId": "bfPGpjzc9VI",
+      "name": "brai",
+      "notes": "",
+      "category": "General",
       "items": [],
-      "id": "OloM7mTUhCA"
-    },
-    {
-      "userId": "jUTmRqY8eg0",
-      "name": "tt",
-      "description": "tt",
-      "numberOfItems": 0,
-      "createdAt": "2026-08-27T11:32:03.613Z",
-      "items": [],
-      "id": "rDqzNfrSTcI"
-    },
-    {
-      "userId": "jUTmRqY8eg0",
-      "name": "errf",
-      "description": "er",
-      "numberOfItems": 0,
-      "createdAt": "2026-08-27T13:02:50.571Z",
-      "items": [],
-      "id": "p56ojgGZXWg"
-    },
-    {
-      "userId": "jUTmRqY8eg0",
-      "name": "3e",
-      "description": "e3e",
-      "numberOfItems": 0,
-      "createdAt": "2026-08-27T13:02:58.691Z",
-      "items": [],
-      "id": "WTCR3YVSIu8"
+      "createdAt": "2026-08-28T12:05:46.878Z",
+      "id": "yLAi5Fyf_ds"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

@@ -1,0 +1,50 @@
+.list {
+  background: white;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  padding: 18px 20px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.header h2 {
+  margin: 0 0 5px;
+  font-size: 15px;
+  color: #333;
+}
+
+.header p {
+  margin: 0;
+  font-size: 11px;
+  color: #999;
+}
+
+.items {
+  margin-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+
+  font-size: 13px;
+  color: #333;
+}
+.itemInfo {
+  display: flex;
+  gap: 20px;
+  flex: 1;
+}
+
+.actions {
+  display: flex;
+  gap: 6px;
+}
