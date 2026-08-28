@@ -3,6 +3,7 @@ import signUpReducer from "../ReduxSlice/SignUp";
 import loginReducer from "../ReduxSlice/LoginSlice";
 // import listReducer from "../ReduxSlice/ListSlice"
 import shoppingListReducer from "../ReduxSlice/shoppingListSlice";
+import profileReducer from "../ReduxSlice/ProfileSlice";
 
 
 const store = configureStore({
@@ -11,6 +12,7 @@ signUp: signUpReducer,
 login: loginReducer,
 // list: listReducer,
     shoppingLists: shoppingListReducer,
+      profile: profileReducer,
 },
 });
 

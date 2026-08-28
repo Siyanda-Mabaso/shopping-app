@@ -2,7 +2,7 @@
   "users": [
     {
       "name": "zama",
-      "surname": "ngcobo",
+      "surname": "ngubasne",
       "number": "0000",
       "email": "zama@gmail.com",
       "password": "zama",
@@ -81,7 +81,14 @@
       "name": "Weakly Grossa",
       "notes": "",
       "category": "General",
-      "items": [],
+      "items": [
+        {
+          "id": "1787924893860",
+          "name": "fhtgtht",
+          "quantity": 77,
+          "completed": false
+        }
+      ],
       "createdAt": "2026-08-28T12:04:31.718Z",
       "id": "dhdQ02kuoi8"
     },
@@ -90,7 +97,14 @@
       "name": "brai",
       "notes": "",
       "category": "General",
-      "items": [],
+      "items": [
+        {
+          "id": "1787924951916",
+          "name": "milk",
+          "quantity": 5,
+          "completed": false
+        }
+      ],
       "createdAt": "2026-08-28T12:05:46.878Z",
       "id": "yLAi5Fyf_ds"
     }

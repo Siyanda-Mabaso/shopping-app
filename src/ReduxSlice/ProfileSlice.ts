@@ -1,8 +1,15 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
-import type { SignInState } from "./SignUp";
+import {
+  createAsyncThunk,
+  createSlice,
+} from "@reduxjs/toolkit";
 
-const API_URL = "http://localhost:3000/users";
+import axios from "axios";
+
+import type { SignInState } from "./SignUp";
+import { updateUser } from "./LoginSlice";
+
+const API_URL =
+  "http://localhost:3000/users";
 
 interface ProfileState {
   loading: boolean;
@@ -14,59 +21,81 @@ const initialState: ProfileState = {
   error: null,
 };
 
-// Update user
-export const updateProfileThunk = createAsyncThunk(
-  "profile/update",
-  async (user: SignInState, thunkAPI) => {
-    try {
-      const response = await axios.put(
-        `${API_URL}/${user.id}`,
-        user
-      );
+/* =========================
+   UPDATE PROFILE
+========================= */
 
-      return response.data;
-    } catch (err: any) {
-      return thunkAPI.rejectWithValue(
-        err.message || "Failed to update profile"
-      );
+export const updateProfileThunk =
+  createAsyncThunk(
+    "profile/update",
+
+    async (
+      user: SignInState,
+      thunkAPI
+    ) => {
+      try {
+        const response =
+          await axios.put(
+            `${API_URL}/${user.id}`,
+            user
+          );
+
+        // Update login Redux state
+        thunkAPI.dispatch(
+          updateUser(response.data)
+        );
+
+        return response.data;
+
+      } catch (err: any) {
+        return thunkAPI.rejectWithValue(
+          err.message ||
+            "Failed to update profile"
+        );
+      }
     }
-  }
-);
+  );
 
-const profileSlice = createSlice({
-  name: "profile",
-  initialState,
+/* =========================
+   SLICE
+========================= */
 
-  reducers: {},
+const profileSlice =
+  createSlice({
+    name: "profile",
 
-  extraReducers: (builder) => {
-    builder
+    initialState,
 
-      // Updating profile
-      .addCase(
-        updateProfileThunk.pending,
-        (state) => {
-          state.loading = true;
-          state.error = null;
-        }
-      )
+    reducers: {},
 
-      .addCase(
-        updateProfileThunk.fulfilled,
-        (state) => {
-          state.loading = false;
-        }
-      )
+    extraReducers: (builder) => {
+      builder
 
-      .addCase(
-        updateProfileThunk.rejected,
-        (state, action) => {
-          state.loading = false;
-          state.error =
-            action.payload as string;
-        }
-      );
-  },
-});
+        .addCase(
+          updateProfileThunk.pending,
+          (state) => {
+            state.loading = true;
+            state.error = null;
+          }
+        )
+
+        .addCase(
+          updateProfileThunk.fulfilled,
+          (state) => {
+            state.loading = false;
+          }
+        )
+
+        .addCase(
+          updateProfileThunk.rejected,
+          (state, action) => {
+            state.loading = false;
+
+            state.error =
+              action.payload as string;
+          }
+        );
+    },
+  });
 
 export default profileSlice.reducer;

@@ -1,77 +1,152 @@
-import {createSlice} from "@reduxjs/toolkit"
-import type {PayloadAction} from "@reduxjs/toolkit"
-import {createAsyncThunk} from "@reduxjs/toolkit"
-import axios from "axios"
-import type{SignInState} from "./SignUp"
+import {
+  createSlice,
+  createAsyncThunk,
+} from "@reduxjs/toolkit";
+
+import axios from "axios";
+import type { SignInState } from "./SignUp";
 
 export interface LoginState {
- user: SignInState |null
- isLoggedIn:boolean;
+  user: SignInState | null;
+  isLoggedIn: boolean;
   isLoading: boolean;
   error: string | null;
-
 }
 
-const initialState: LoginState = {
- user: null,
- isLoggedIn: false,
-  isLoading: false,
-  error: null,
+const savedUser = localStorage.getItem("user");
 
+const initialState: LoginState = {
+  user: savedUser
+    ? JSON.parse(savedUser)
+    : null,
+
+  isLoggedIn: !!savedUser,
+
+  isLoading: false,
+
+  error: null,
 };
+
+/* =========================
+   LOGIN
+========================= */
 
 export const loginThunk = createAsyncThunk(
   "auth/login",
-  async (credentials: Pick<SignInState, "email" | "password">, thunkAPI) => {
-    try {
-      // 4. json-server requires query parameters via the 'params' object
-      const response = await axios.get("http://localhost:3000/users", {
-        params: {
-          email: credentials.email,
-          password: credentials.password,
-        },
-      });
 
-      // json-server returns an array for filter queries. 
-      // If array is empty, the user typed the wrong email or password.
+  async (
+    credentials: Pick<
+      SignInState,
+      "email" | "password"
+    >,
+    thunkAPI
+  ) => {
+    try {
+      const response = await axios.get(
+        "http://localhost:3000/users",
+        {
+          params: {
+            email: credentials.email,
+            password: credentials.password,
+          },
+        }
+      );
+
       if (response.data.length === 0) {
-        return thunkAPI.rejectWithValue("Invalid email or password");
+        return thunkAPI.rejectWithValue(
+          "Invalid email or password"
+        );
       }
 
-      // Return the matched user object (first item in array)
-      return response.data[0]; 
+      return response.data[0];
+
     } catch (error: any) {
-      return thunkAPI.rejectWithValue(error.message || "Login failed");
+      return thunkAPI.rejectWithValue(
+        error.message || "Login failed"
+      );
     }
   }
 );
 
+/* =========================
+   SLICE
+========================= */
+
 const loginSlice = createSlice({
   name: "login",
+
   initialState,
+
   reducers: {
-    logout: (state)=>{
-        state.user = null,
-        state.isLoggedIn =false 
-        state.error = null
-    }
-  },
-  extraReducers:(builder)=> {
-    builder
-    .addCase(loginThunk.pending, (state) => {
-      state.isLoading = true;
+    logout: (state) => {
+      state.user = null;
+      state.isLoggedIn = false;
       state.error = null;
-    })
-    .addCase(loginThunk.fulfilled, (state, action: PayloadAction<SignInState>) => {
-      state.isLoading = false;
+
+      // Remove user when logging out
+      localStorage.removeItem("user");
+    },
+
+    // Update user in Redux
+    updateUser: (
+      state,
+      action
+    ) => {
       state.user = action.payload;
-    })
-    .addCase(loginThunk.rejected, (state, action) => {
-      state.isLoading = false;
-      state.error = action.payload as string;
-    });
-  }
+
+      localStorage.setItem(
+        "user",
+        JSON.stringify(action.payload)
+      );
+    },
+  },
+
+  extraReducers: (builder) => {
+    builder
+
+      /* LOGIN START */
+      .addCase(
+        loginThunk.pending,
+        (state) => {
+          state.isLoading = true;
+          state.error = null;
+        }
+      )
+
+      /* LOGIN SUCCESS */
+      .addCase(
+        loginThunk.fulfilled,
+        (state, action) => {
+          state.isLoading = false;
+
+          state.user = action.payload;
+
+          state.isLoggedIn = true;
+
+          // Save user so refresh doesn't log them out
+          localStorage.setItem(
+            "user",
+            JSON.stringify(action.payload)
+          );
+        }
+      )
+
+      /* LOGIN FAILED */
+      .addCase(
+        loginThunk.rejected,
+        (state, action) => {
+          state.isLoading = false;
+
+          state.error =
+            action.payload as string;
+        }
+      );
+  },
 });
 
-export const { logout } = loginSlice.actions;
+export const {
+  logout,
+  updateUser,
+} = loginSlice.actions;
+
 export default loginSlice.reducer;

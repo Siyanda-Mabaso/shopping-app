@@ -1,12 +1,64 @@
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
 import Header from "../../Components/Header/Header";
 import Button from "../../Components/Button/Button";
 import Input from "../../Components/Input/Input";
+
+import type {
+  RootState,
+  AppDispatch,
+} from "../../Store/store";
+
+import { updateProfileThunk } from "../../ReduxSlice/ProfileSlice";
+
 import styles from "./Profile.module.css";
-import { useSelector} from "react-redux";
-import type { RootState } from "../../Store/store";
 
 const Profile = () => {
-  const currentUser = useSelector((state: RootState) => state.login.user);
+  const dispatch = useDispatch<AppDispatch>();
+
+  const currentUser = useSelector(
+    (state: RootState) => state.login.user
+  );
+
+  const loading = useSelector(
+    (state: RootState) => state.profile.loading
+  );
+
+  // Form values
+  const [name, setName] = useState(
+    currentUser?.name || ""
+  );
+
+  const [surname, setSurname] = useState(
+    currentUser?.surname || ""
+  );
+
+  const [email, setEmail] = useState(
+    currentUser?.email || ""
+  );
+
+  const [number, setNumber] = useState(
+    currentUser?.number || ""
+  );
+
+  const handleSubmit = async (
+    e: React.FormEvent<HTMLFormElement>
+  ) => {
+    e.preventDefault();
+
+    if (!currentUser?.id) return;
+
+    await dispatch(
+      updateProfileThunk({
+        ...currentUser,
+        name,
+        surname,
+        email,
+        number,
+      })
+    );
+  };
 
   return (
     <div className={styles.profilePage}>
@@ -15,7 +67,10 @@ const Profile = () => {
       <main className={styles.main}>
         <div className={styles.heading}>
           <h1>My Profile</h1>
-          <p>View and update your personal information.</p>
+
+          <p>
+            View and update your personal information.
+          </p>
         </div>
 
         <section className={styles.profileCard}>
@@ -26,18 +81,27 @@ const Profile = () => {
 
             <div>
               <h2>Profile Information</h2>
-              <p>Update your account details below.</p>
+
+              <p>
+                Update your account details below.
+              </p>
             </div>
           </div>
 
-          <form className={styles.form}>
+          <form
+            className={styles.form}
+            onSubmit={handleSubmit}
+          >
             <div className={styles.formRow}>
               <Input
                 id="name"
                 label="Name"
                 type="text"
                 placeholder="Enter your name"
-                value={currentUser?.name}
+                value={name}
+                onChange={(e) =>
+                  setName(e.target.value)
+                }
               />
 
               <Input
@@ -45,7 +109,10 @@ const Profile = () => {
                 label="Surname"
                 type="text"
                 placeholder="Enter your surname"
-                value={currentUser?.surname || ""}
+                value={surname}
+                onChange={(e) =>
+                  setSurname(e.target.value)
+                }
               />
             </div>
 
@@ -54,7 +121,10 @@ const Profile = () => {
               label="Email"
               type="email"
               placeholder="Enter your email"
-              value={currentUser?.email || ""}
+              value={email}
+              onChange={(e) =>
+                setEmail(e.target.value)
+              }
             />
 
             <Input
@@ -62,23 +132,18 @@ const Profile = () => {
               label="Cell Number"
               type="tel"
               placeholder="Enter your cell number"
-              value={currentUser?.number || ""}
+              value={number}
+              onChange={(e) =>
+                setNumber(e.target.value)
+              }
             />
 
-            {/* <div className={styles.passwordSection}>
-              <h3>Update Password</h3>
-
-              <Input
-                id="password"
-                label="New Password"
-                type="password"
-                placeholder="Enter your new password"
-              />
-            </div> */}
-
             <div className={styles.actions}>
-              <Button type="submit">
-                Save Changes
+              <Button
+                type="submit"
+                disabled={loading}
+              >
+                {loading ? "Saving..." : "Save Changes"}
               </Button>
             </div>
           </form>
