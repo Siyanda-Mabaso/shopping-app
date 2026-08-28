@@ -1,20 +1,27 @@
-import Button from "../Button/Button";
-import styles from "./List.module.css";
+import { useDispatch } from "react-redux";
 
-interface Item {
-  id: string;
-  name: string;
-  quantity: number;
-  completed: boolean;
-}
+import Button from "../Button/Button";
+
+import type { AppDispatch } from "../../Store/store";
+
+import {
+  deleteItemThunk,
+  type ShoppingItem,
+} from "../../ReduxSlice/shoppingListSlice";
+
+import styles from "./List.module.css";
 
 interface ListProps {
   id: string;
   name: string;
-  items: Item[];
+  items: ShoppingItem[];
+
   onAddItem: (listId: string) => void;
-  onEditItem: (listId: string, item: Item) => void;
-  onDeleteItem: (listId: string, itemId: string) => void;
+
+  onEditItem: (
+    listId: string,
+    item: ShoppingItem
+  ) => void;
 }
 
 const List = ({
@@ -23,42 +30,54 @@ const List = ({
   items,
   onAddItem,
   onEditItem,
-  onDeleteItem,
 }: ListProps) => {
+  const dispatch = useDispatch<AppDispatch>();
+
+  const handleDelete = (itemId: string) => {
+    dispatch(
+      deleteItemThunk({
+        listId: id,
+        itemId: itemId,
+      })
+    );
+  };
+
   return (
     <div className={styles.list}>
 
       <div className={styles.header}>
-        <div>
-          <h2>{name}</h2>
+        <h2>{name}</h2>
 
-          <p>
-            {items.length}{" "}
-            {items.length === 1 ? "item" : "items"}
-          </p>
-        </div>
-
-        <Button
-          variant="secondary"
-          onClick={() => onAddItem(id)}
-        >
+        <Button onClick={() => onAddItem(id)}>
           + Add Item
         </Button>
       </div>
 
-      {items.length > 0 && (
+      {items.length === 0 ? (
+        <p className={styles.empty}>
+          No items in this list yet.
+        </p>
+      ) : (
         <div className={styles.items}>
+
           {items.map((item) => (
             <div
               key={item.id}
               className={styles.item}
             >
+
               <div className={styles.itemInfo}>
-                <span>{item.name}</span>
-                <span>Qty: {item.quantity}</span>
+                <span className={styles.itemName}>
+                  {item.name}
+                </span>
+
+                <span className={styles.quantity}>
+                  Qty: {item.quantity}
+                </span>
               </div>
 
               <div className={styles.actions}>
+
                 <Button
                   variant="secondary"
                   onClick={() =>
@@ -71,14 +90,17 @@ const List = ({
                 <Button
                   variant="danger"
                   onClick={() =>
-                    onDeleteItem(id, item.id)
+                    handleDelete(item.id)
                   }
                 >
                   Delete
                 </Button>
+
               </div>
+
             </div>
           ))}
+
         </div>
       )}
 

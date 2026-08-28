@@ -15,6 +15,14 @@
       "email": "syandamabaso39@gmail.com",
       "password": "syanda",
       "id": "3VABK7IGkFw"
+    },
+    {
+      "name": "test",
+      "surname": "testo1",
+      "number": "12336",
+      "email": "Test01@gmail.com",
+      "password": "Test01",
+      "id": "coVor6dQg00"
     }
   ],
   "lists": [
@@ -73,14 +81,7 @@
       "name": "Weakly Grossa",
       "notes": "",
       "category": "General",
-      "items": [
-        {
-          "id": "1787918790894",
-          "name": "milk",
-          "quantity": 89,
-          "completed": false
-        }
-      ],
+      "items": [],
       "createdAt": "2026-08-28T12:04:31.718Z",
       "id": "dhdQ02kuoi8"
     },

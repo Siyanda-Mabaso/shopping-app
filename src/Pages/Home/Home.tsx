@@ -7,15 +7,11 @@ import Input from "../../Components/Input/Input";
 import List from "../../Components/List/List";
 import AddItem from "../../Components/AddItem/AddItem";
 
-import type {
-  RootState,
-  AppDispatch,
-} from "../../Store/store";
+import type { RootState, AppDispatch } from "../../Store/store";
 
 import {
   fetchListsThunk,
   createShoppingListThunk,
-  deleteItemThunk,
   type ShoppingItem,
 } from "../../ReduxSlice/shoppingListSlice";
 
@@ -24,49 +20,48 @@ import styles from "./Home.module.css";
 const Home = () => {
   const dispatch = useDispatch<AppDispatch>();
 
+  // Get shopping lists from Redux
   const { lists, loading } = useSelector(
     (state: RootState) => state.shoppingLists
   );
-  const listId = useSelector(
-    (state: RootState) => state.shoppingLists.lists
+
+  // Get logged-in user
+  const user = useSelector(
+    (state: RootState) => state.login.user
   );
 
-  const [showListForm, setShowListForm] = useState(false);
-  const [listName, setListName] = useState("")
+  // Create list form
+  const [showListForm, setShowListForm] =
+    useState(false);
 
-  const user=useSelector((state:RootState)=>state.login.user)
+  const [listName, setListName] =
+    useState("");
 
+  // Add/Edit item modal
   const [selectedListId, setSelectedListId] =
     useState<string | null>(null);
 
   const [editingItem, setEditingItem] =
     useState<ShoppingItem | null>(null);
 
-  /* =========================
-     LOAD SHOPPING LISTS
-  ========================= */
-
+  // Load shopping lists
   useEffect(() => {
-    // For now we use "1" as the user ID.
-   if (user?.id){
-    dispatch(fetchListsThunk(user.id));
+    if (user?.id) {
+      dispatch(fetchListsThunk(user.id));
     }
-  }, [dispatch]);
+  }, [dispatch, user?.id]);
 
-  /* =========================
-     CREATE LIST
-  ========================= */
-
+  // Create shopping list
   const handleCreateList = async (
     e: React.FormEvent<HTMLFormElement>
   ) => {
     e.preventDefault();
 
-    if (!listName.trim()) return;
+    if (!listName.trim() || !user?.id) return;
 
     await dispatch(
       createShoppingListThunk({
-        userId:user?.id ?? '',
+        userId: user.id,
         name: listName.trim(),
         notes: "",
         category: "General",
@@ -79,19 +74,13 @@ const Home = () => {
     setShowListForm(false);
   };
 
-  /* =========================
-     OPEN ADD ITEM MODAL
-  ========================= */
-
+  // Open Add Item modal
   const handleAddItem = (listId: string) => {
     setSelectedListId(listId);
     setEditingItem(null);
   };
 
-  /* =========================
-     OPEN EDIT ITEM MODAL
-  ========================= */
-
+  // Open Edit Item modal
   const handleEditItem = (
     listId: string,
     item: ShoppingItem
@@ -100,20 +89,7 @@ const Home = () => {
     setEditingItem(item);
   };
 
-// const handleDelete = (itemId: string) => {
-//   dispatch(
-//     deleteItemThunk({
-//       itemId,
-//       listId : lists. ?? '',
-//     })
-//   );
-// };
-
-
-  /* =========================
-     CLOSE ITEM MODAL
-  ========================= */
-
+  // Close Add/Edit modal
   const handleCloseItemModal = () => {
     setSelectedListId(null);
     setEditingItem(null);
@@ -127,7 +103,6 @@ const Home = () => {
         <div className={styles.container}>
 
           {/* PAGE HEADER */}
-
           <div className={styles.pageHeader}>
             <div>
               <h1>My Shopping Lists</h1>
@@ -148,7 +123,6 @@ const Home = () => {
           </div>
 
           {/* CREATE LIST FORM */}
-
           {showListForm && (
             <form
               className={styles.form}
@@ -188,7 +162,6 @@ const Home = () => {
           )}
 
           {/* SHOPPING LISTS */}
-
           {lists.length === 0 ? (
             <div className={styles.emptyState}>
               <div className={styles.cartIcon}>
@@ -212,7 +185,6 @@ const Home = () => {
                   items={list.items}
                   onAddItem={handleAddItem}
                   onEditItem={handleEditItem}
-                  onDeleteItem={() => {}}
                 />
               ))}
             </div>
@@ -221,7 +193,6 @@ const Home = () => {
       </main>
 
       {/* ADD / EDIT ITEM MODAL */}
-
       {selectedListId && (
         <AddItem
           listId={selectedListId}
