@@ -12,18 +12,27 @@ import type { RootState, AppDispatch } from "../../Store/store";
 import {
   fetchListsThunk,
   createShoppingListThunk,
+  editListThunk,
   type ShoppingItem,
 } from "../../ReduxSlice/shoppingListSlice";
+
+
 
 import styles from "./Home.module.css";
 
 const Home = () => {
+
   const dispatch = useDispatch<AppDispatch>();
 
   // Get shopping lists from Redux
   const { lists, loading } = useSelector(
     (state: RootState) => state.shoppingLists
   );
+    //Search 
+   const [searchQuery, setSearchQuery] = useState("")
+   const filteredLinks = lists.filter(list =>
+    list.name.toLowerCase().includes(searchQuery.toLowerCase())
+   )
 
   // Get logged-in user
   const user = useSelector(
@@ -35,6 +44,9 @@ const Home = () => {
     useState(false);
 
   const [listName, setListName] =
+    useState("");
+
+      const [category, setCategory] =
     useState("");
 
   // Add/Edit item modal
@@ -59,18 +71,20 @@ const Home = () => {
 
     if (!listName.trim() || !user?.id) return;
 
+   
     await dispatch(
       createShoppingListThunk({
         userId: user.id,
         name: listName.trim(),
         notes: "",
-        category: "General",
+        category: category.trim(),
         items: [],
         createdAt: new Date().toISOString(),
       })
     );
 
     setListName("");
+    setCategory("");
     setShowListForm(false);
   };
 
@@ -95,8 +109,20 @@ const Home = () => {
     setEditingItem(null);
   };
 
+
   return (
     <>
+    <div>
+         <Input
+                id="search"
+                label="Search Bar"
+                placeholder="Search...."
+                value={searchQuery}
+                onChange={(e) =>
+                  setSearchQuery(e.target.value)
+                }
+              />
+    </div>
       <Header />
 
       <main className={styles.home}>
@@ -123,6 +149,7 @@ const Home = () => {
           </div>
 
           {/* CREATE LIST FORM */}
+
           {showListForm && (
             <form
               className={styles.form}
@@ -137,6 +164,15 @@ const Home = () => {
                 value={listName}
                 onChange={(e) =>
                   setListName(e.target.value)
+                }
+              />
+                 <Input
+                id="list-name"
+                label="Category"
+                placeholder="e.g. Groceries"
+                value={category}
+                onChange={(e) =>
+                  setCategory(e.target.value)
                 }
               />
 
@@ -177,12 +213,13 @@ const Home = () => {
             </div>
           ) : (
             <div className={styles.listContainer}>
-              {lists.map((list) => (
+              {filteredLinks.map((list) => (
                 <List
                   key={list.id}
                   id={list.id}
                   name={list.name}
                   items={list.items}
+                  catergory={list.category}
                   onAddItem={handleAddItem}
                   onEditItem={handleEditItem}
                 />

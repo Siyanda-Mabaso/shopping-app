@@ -83,7 +83,7 @@ const AddItem = ({
             className={styles.close}
             onClick={onClose}
           >
-            ×
+            X
           </button>
         </div>
 

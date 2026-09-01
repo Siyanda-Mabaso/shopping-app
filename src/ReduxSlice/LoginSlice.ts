@@ -84,7 +84,7 @@ const loginSlice = createSlice({
       state.error = null;
 
       // Remove user when logging out
-      localStorage.removeItem("user");
+      localStorage.removeItem('user');
     },
 
     // Update user in Redux

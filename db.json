@@ -11,7 +11,7 @@
     {
       "name": "syanda",
       "surname": "mabaso",
-      "number": "07123456789",
+      "number": "25225252",
       "email": "syandamabaso39@gmail.com",
       "password": "syanda",
       "id": "3VABK7IGkFw"
@@ -77,22 +77,6 @@
       "id": "pbIv1Lc8ayg"
     },
     {
-      "userId": "3VABK7IGkFw",
-      "name": "Weakly Grossa",
-      "notes": "",
-      "category": "General",
-      "items": [
-        {
-          "id": "1787924893860",
-          "name": "fhtgtht",
-          "quantity": 77,
-          "completed": false
-        }
-      ],
-      "createdAt": "2026-08-28T12:04:31.718Z",
-      "id": "dhdQ02kuoi8"
-    },
-    {
       "userId": "bfPGpjzc9VI",
       "name": "brai",
       "notes": "",
@@ -107,6 +91,40 @@
       ],
       "createdAt": "2026-08-28T12:05:46.878Z",
       "id": "yLAi5Fyf_ds"
+    },
+    {
+      "userId": "3VABK7IGkFw",
+      "name": "grosa",
+      "notes": "",
+      "category": "Weakly Grossa",
+      "items": [
+        {
+          "id": "1788269532760",
+          "name": "chese",
+          "quantity": 7,
+          "completed": false
+        }
+      ],
+      "createdAt": "2026-09-01T13:31:41.816Z",
+      "id": "JyiUwyLvmao"
+    },
+    {
+      "userId": "3VABK7IGkFw",
+      "name": "Weakly Grossa",
+      "notes": "",
+      "category": "Cleaning Day",
+      "items": [],
+      "createdAt": "2026-09-01T13:33:13.640Z",
+      "id": "lDJiPm7EtYo"
+    },
+    {
+      "userId": "3VABK7IGkFw",
+      "name": "Weakly Grossa",
+      "notes": "",
+      "category": "Cleaning Day",
+      "items": [],
+      "createdAt": "2026-09-01T13:33:25.008Z",
+      "id": "bsAGomHFtqY"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
