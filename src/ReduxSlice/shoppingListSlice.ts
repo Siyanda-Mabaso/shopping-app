@@ -1,11 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const API_URL = "http://localhost:3000/lists";
+const API_URL = "http://localhost:4000/lists";
 
-/* =========================
-   TYPES
-========================= */
+
+  //  TYPES
 
 export interface ShoppingItem {
   id: string;
@@ -35,10 +34,8 @@ const initialState: ShoppingListState = {
   loading: false,
   error: null,
 };
+  //  FETCH LISTS
 
-/* =========================
-   FETCH LISTS
-========================= */
 
 export const fetchListsThunk = createAsyncThunk(
   "list/fetchAll",
@@ -57,9 +54,8 @@ export const fetchListsThunk = createAsyncThunk(
   }
 );
 
-/* =========================
-   CREATE LIST
-========================= */
+  //  CREATE LIST
+
 
 export const createShoppingListThunk = createAsyncThunk(
   "list/create",
@@ -91,26 +87,26 @@ export const createShoppingListThunk = createAsyncThunk(
    EDIT LIST
 ========================= */
 
-export const editListThunk = createAsyncThunk(
-  "list/edit",
-  async (
-    listData: ShoppingList,
-    thunkAPI
-  ) => {
-    try {
-      const response = await axios.put(
-        `${API_URL}/${listData.id}`,
-        listData
-      );
+// export const editListThunk = createAsyncThunk (
+//   "list/edit",
+//   async (
+//     listData: ShoppingList,
+//     thunkAPI
+//   ) => {
+//     try {
+//       const response = await axios.put(
+//         `${API_URL}/${listData.id}`,
+//         listData
+//       );
 
-      return response.data;
-    } catch (err: any) {
-      return thunkAPI.rejectWithValue(
-        err.message || "Failed to update list"
-      );
-    }
-  }
-);
+//       return response.data;
+//     } catch (err: any) {
+//       return thunkAPI.rejectWithValue(
+//         err.message || "Failed to update list"
+//       );
+//     }
+//   }
+// );
 
 /* =========================
    DELETE LIST
@@ -252,16 +248,14 @@ export const editItemThunk = createAsyncThunk(
   }
 );
 
-/* =========================
-   UPDATE ITEM
-   Same thunk, different name
-========================= */
+
+  //  UPDATE ITEM
+  //  Same thunk, different name
+
 
 export const updateItemThunk = editItemThunk;
 
-/* =========================
-   DELETE ITEM
-========================= */
+  // Delete Item
 
 export const deleteItemThunk = createAsyncThunk(
   "list/deleteItem",
@@ -315,65 +309,64 @@ export const deleteItemThunk = createAsyncThunk(
    TOGGLE ITEM
 ========================= */
 
-export const toggleItemThunk = createAsyncThunk(
-  "list/toggleItem",
-  async (
-    data: {
-      listId: string;
-      itemId: string;
-    },
-    thunkAPI
-  ) => {
-    try {
-      const state = thunkAPI.getState() as {
-        shoppingLists: ShoppingListState;
-      };
+// export const toggleItemThunk = createAsyncThunk(
+//   "list/toggleItem",
+//   async (
+//     data: {
+//       listId: string;
+//       itemId: string;
+//     },
+//     thunkAPI
+//   ) => {
+//     try {
+//       const state = thunkAPI.getState() as {
+//         shoppingLists: ShoppingListState;
+//       };
 
-      const list =
-        state.shoppingLists.lists.find(
-          (list) =>
-            list.id === data.listId
-        );
+//       const list =
+//         state.shoppingLists.lists.find(
+//           (list) =>
+//             list.id === data.listId
+//         );
 
-      if (!list) {
-        return thunkAPI.rejectWithValue(
-          "List not found"
-        );
-      }
+//       if (!list) {
+//         return thunkAPI.rejectWithValue(
+//           "List not found"
+//         );
+//       }
 
-      const updatedItems =
-        list.items.map((item) =>
-          item.id === data.itemId
-            ? {
-                ...item,
-                completed:
-                  !item.completed,
-              }
-            : item
-        );
+//       const updatedItems =
+//         list.items.map((item) =>
+//           item.id === data.itemId
+//             ? {
+//                 ...item,
+//                 completed:
+//                   !item.completed,
+//               }
+//             : item
+//         );
 
-      const updatedList = {
-        ...list,
-        items: updatedItems,
-      };
+//       const updatedList = {
+//         ...list,
+//         items: updatedItems,
+//       };
 
-      const response = await axios.put(
-        `${API_URL}/${data.listId}`,
-        updatedList
-      );
+//       const response = await axios.put(
+//         `${API_URL}/${data.listId}`,
+//         updatedList
+//       );
 
-      return response.data;
-    } catch (err: any) {
-      return thunkAPI.rejectWithValue(
-        err.message || "Failed to toggle item"
-      );
-    }
-  }
-);
+//       return response.data;
+//     } catch (err: any) {
+//       return thunkAPI.rejectWithValue(
+//         err.message || "Failed to toggle item"
+//       );
+//     }
+//   }
+// );
 
-/* =========================
-   SLICE
-========================= */
+
+  //  SLICE
 
 const shoppingListSlice = createSlice({
   name: "shoppingLists",
@@ -384,7 +377,7 @@ const shoppingListSlice = createSlice({
   extraReducers: (builder) => {
     builder
 
-      /* FETCH */
+      // FETCH 
       .addCase(
         fetchListsThunk.pending,
         (state) => {
@@ -437,21 +430,21 @@ const shoppingListSlice = createSlice({
       )
 
       /* EDIT LIST */
-      .addCase(
-        editListThunk.fulfilled,
-        (state, action) => {
-          const index =
-            state.lists.findIndex(
-              (list) =>
-                list.id === action.payload.id
-            );
+      // .addCase(
+      //   editListThunk.fulfilled,
+      //   (state, action) => {
+      //     const index =
+      //       state.lists.findIndex(
+      //         (list) =>
+      //           list.id === action.payload.id
+      //       );
 
-          if (index !== -1) {
-            state.lists[index] =
-              action.payload;
-          }
-        }
-      )
+      //     if (index !== -1) {
+      //       state.lists[index] =
+      //         action.payload;
+      //     }
+      //   }
+      // )
 
       /* DELETE LIST */
       .addCase(
@@ -465,10 +458,9 @@ const shoppingListSlice = createSlice({
         }
       );
 
-    /* =====================
-       REPLACE UPDATED LIST
-    ===================== */
-
+    
+      //  REPLACE UPDATED LIST
+  
     const replaceList = (
       state: ShoppingListState,
       action: {
@@ -503,10 +495,10 @@ const shoppingListSlice = createSlice({
         replaceList
       )
 
-      .addCase(
-        toggleItemThunk.fulfilled,
-        replaceList
-      );
+      // .addCase(
+      //   toggleItemThunk.fulfilled,
+      //   replaceList
+      // );
   },
 });
 

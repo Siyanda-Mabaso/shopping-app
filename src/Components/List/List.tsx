@@ -5,7 +5,7 @@ import Button from "../Button/Button";
 import type { AppDispatch } from "../../Store/store";
 
 import {
-  deleteItemThunk,editListThunk,
+  deleteItemThunk,
   type ShoppingItem,
 } from "../../ReduxSlice/shoppingListSlice";
 import { deleteListThunk } from "../../ReduxSlice/shoppingListSlice";
@@ -18,18 +18,21 @@ interface ListProps {
   catergory: string;
   items: ShoppingItem[];
 
+  
+
   onAddItem: (listId: string) => void;
 
   onEditItem: (listId: string, item: ShoppingItem) => void;
 }
 
-const List = ({
+ const List = ({
   id,
   name,
   items,
   catergory,
   onAddItem,
   onEditItem,
+  
 }: ListProps) => {
   const dispatch = useDispatch<AppDispatch>();
 
@@ -55,17 +58,17 @@ const List = ({
       <div className={styles.header}>
         <h2>{name}</h2>
         <h3>Catergory : {catergory}</h3>
+        {/* <p>Created: {createdAt}</p> */}
 
         <Button onClick={() => onAddItem(id)}>+ Add Item</Button>
-        <Button onClick={() =>{} } >Edit</Button>
+       
         <Button variant="danger" onClick={() => handleDeleteList(id)}> Delete  </Button>
-        
-
+      
       </div>
 
-      {items.length === 0 ? (
-        <p className={styles.empty}>No items in this list yet.</p>
-      ) : (
+  {(items?.length ?? 0) === 0 ? (
+  <p className={styles.empty}>No items in this list yet.</p>
+)  : (
         <div className={styles.items}>
           {items.map((item) => (
             <div key={item.id} className={styles.item}>

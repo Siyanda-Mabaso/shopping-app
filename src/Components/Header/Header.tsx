@@ -3,13 +3,15 @@ import Button from "../Button/Button";
 import styles from "./Header.module.css";
 import { logout } from "../../ReduxSlice/LoginSlice";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 
 
 const Header = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const handleLogout=() => {
-    logout();
+    dispatch(logout());
     navigate("/login");
   }
   return (

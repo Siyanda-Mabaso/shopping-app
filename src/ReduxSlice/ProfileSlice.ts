@@ -9,7 +9,7 @@ import type { SignInState } from "./SignUp";
 import { updateUser } from "./LoginSlice";
 
 const API_URL =
-  "http://localhost:3000/users";
+  "http://localhost:4000/users";
 
 interface ProfileState {
   loading: boolean;

@@ -12,7 +12,7 @@ import type { RootState, AppDispatch } from "../../Store/store";
 import {
   fetchListsThunk,
   createShoppingListThunk,
-  editListThunk,
+  
   type ShoppingItem,
 } from "../../ReduxSlice/shoppingListSlice";
 
@@ -169,7 +169,7 @@ const Home = () => {
                  <Input
                 id="list-name"
                 label="Category"
-                placeholder="e.g. Groceries"
+                placeholder="e.g. Cosme"
                 value={category}
                 onChange={(e) =>
                   setCategory(e.target.value)

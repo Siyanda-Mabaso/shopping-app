@@ -31,7 +31,7 @@ const initialState: SignInState = {
 export const signup = createAsyncThunk(
   "signup",
   async (userData: SignInState) => {
-    const response = await axios.post("http://localhost:3000/users", {
+    const response = await axios.post("http://localhost:4000/users", {
       name: userData.name,
       surname: userData.surname,
       number: userData.number,

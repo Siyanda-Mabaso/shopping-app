@@ -43,7 +43,7 @@ export const loginThunk = createAsyncThunk(
   ) => {
     try {
       const response = await axios.get(
-        "http://localhost:3000/users",
+        "http://localhost:4000/users",
         {
           params: {
             email: credentials.email,
@@ -68,9 +68,9 @@ export const loginThunk = createAsyncThunk(
   }
 );
 
-/* =========================
-   SLICE
-========================= */
+
+  //  SLICE
+
 
 const loginSlice = createSlice({
   name: "login",

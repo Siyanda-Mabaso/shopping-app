@@ -1,130 +1,71 @@
 {
   "users": [
     {
-      "name": "zama",
-      "surname": "ngubasne",
-      "number": "0000",
+      "name": "Zama",
+      "surname": "Zuma",
+      "number": "22220",
       "email": "zama@gmail.com",
       "password": "zama",
-      "id": "bfPGpjzc9VI"
+      "id": "aqIvBFzvkas"
     },
     {
-      "name": "syanda",
-      "surname": "mabaso",
-      "number": "25225252",
-      "email": "syandamabaso39@gmail.com",
-      "password": "syanda",
-      "id": "3VABK7IGkFw"
-    },
-    {
-      "name": "test",
-      "surname": "testo1",
-      "number": "12336",
-      "email": "Test01@gmail.com",
-      "password": "Test01",
-      "id": "coVor6dQg00"
+      "name": "sabelo ",
+      "surname": "mlab",
+      "number": "111",
+      "email": "mlab@gmail.com",
+      "password": "mlab",
+      "id": "LH5bDb_hYgU"
     }
   ],
   "lists": [
     {
-      "userId": "1",
+      "userId": "aqIvBFzvkas",
       "name": "grosa",
       "notes": "",
-      "category": "General",
+      "category": "grosa",
       "items": [
         {
-          "id": "1787917468244",
-          "name": "milk",
-          "quantity": 5,
-          "completed": false
-        },
-        {
-          "id": "1787917480756",
-          "name": "milk",
-          "quantity": 5,
-          "completed": false
-        },
-        {
-          "id": "1787917485661",
+          "id": "1794400675570",
           "name": "chese",
           "quantity": 5,
           "completed": false
-        }
-      ],
-      "createdAt": "2026-08-28T11:44:21.996Z",
-      "id": "6GJDjh3q8oA"
-    },
-    {
-      "userId": "1",
-      "name": "fruit",
-      "notes": "",
-      "category": "General",
-      "items": [
-        {
-          "id": "1787917558237",
-          "name": "aplerd",
-          "quantity": 5,
-          "completed": false
         },
         {
-          "id": "1787917565629",
-          "name": "mango",
-          "quantity": 5,
-          "completed": false
-        }
-      ],
-      "createdAt": "2026-08-28T11:45:45.052Z",
-      "id": "pbIv1Lc8ayg"
-    },
-    {
-      "userId": "bfPGpjzc9VI",
-      "name": "brai",
-      "notes": "",
-      "category": "General",
-      "items": [
-        {
-          "id": "1787924951916",
+          "id": "1794553104718",
           "name": "milk",
-          "quantity": 5,
+          "quantity": 3,
           "completed": false
         }
       ],
-      "createdAt": "2026-08-28T12:05:46.878Z",
-      "id": "yLAi5Fyf_ds"
+      "createdAt": "2026-09-09T12:18:37.580Z",
+      "id": "MEkZ4N1Lew8"
     },
     {
-      "userId": "3VABK7IGkFw",
+      "userId": "aqIvBFzvkas",
       "name": "grosa",
       "notes": "",
-      "category": "Weakly Grossa",
-      "items": [
-        {
-          "id": "1788269532760",
-          "name": "chese",
-          "quantity": 7,
-          "completed": false
-        }
-      ],
-      "createdAt": "2026-09-01T13:31:41.816Z",
-      "id": "JyiUwyLvmao"
+      "category": "yy",
+      "items": [],
+      "createdAt": "2026-09-09T12:19:21.692Z",
+      "id": "JbI1gLlu7lU"
     },
     {
-      "userId": "3VABK7IGkFw",
-      "name": "Weakly Grossa",
+      "userId": "LH5bDb_hYgU",
+      "name": "grosa",
       "notes": "",
-      "category": "Cleaning Day",
+      "category": "grosa",
       "items": [],
-      "createdAt": "2026-09-01T13:33:13.640Z",
-      "id": "lDJiPm7EtYo"
+      "createdAt": "2026-09-09T13:16:15.111Z",
+      "id": "wEv9mHg23vQ"
     },
     {
-      "userId": "3VABK7IGkFw",
-      "name": "Weakly Grossa",
+      "userId": "aqIvBFzvkas",
+      "name": "grosa",
       "notes": "",
-      "category": "Cleaning Day",
+      "category": "cons",
       "items": [],
-      "createdAt": "2026-09-01T13:33:25.008Z",
-      "id": "bsAGomHFtqY"
+      "createdAt": "2026-11-11T12:37:44.649Z",
+      "id": "nZMvpX9NDVg"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
