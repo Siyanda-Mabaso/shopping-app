@@ -131,6 +131,32 @@ export const deleteListThunk = createAsyncThunk(
     }
   }
 );
+// Toggle item completion status
+export const toggleItemThunk = createAsyncThunk<
+  ShoppingList,
+  { listId: string; itemId: string }
+>(
+  "shoppingLists/toggleItem",
+  async ({ listId, itemId }) => {
+    const response = await axios.get(`${API_URL}/${listId}`);
+
+    const updatedList: ShoppingList = {
+      ...response.data,
+      items: response.data.items.map((item: ShoppingItem) =>
+        item.id === itemId
+          ? { ...item, completed: !item.completed }
+          : item
+      ),
+    };
+
+    const updateResponse = await axios.put(
+      `${API_URL}/${listId}`,
+      updatedList
+    );
+
+    return updateResponse.data;
+  }
+);
 
 /* =========================
    ADD ITEM
@@ -494,11 +520,9 @@ const shoppingListSlice = createSlice({
         deleteItemThunk.fulfilled,
         replaceList
       )
+      .addCase(toggleItemThunk.fulfilled, replaceList)
 
-      // .addCase(
-      //   toggleItemThunk.fulfilled,
-      //   replaceList
-      // );
+      
   },
 });
 

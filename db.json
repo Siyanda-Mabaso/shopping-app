@@ -31,38 +31,39 @@
       "userId": "aqIvBFzvkas",
       "name": "Imvunulo",
       "notes": "",
-      "category": "Traditional attire",
+      "category": "Traditional Attire",
       "items": [
         {
-          "id": "1794554539533",
-          "name": "Bheshu",
-          "quantity": 1,
-          "completed": false
+          "id": "1794562837778",
+          "name": "Ibhesu",
+          "quantity": 3,
+          "completed": true
         },
         {
-          "id": "1794554552773",
-          "name": "Umutsa",
-          "quantity": 5,
-          "completed": false
-        },
-        {
-          "id": "1794554566501",
+          "id": "1794562855777",
           "name": "imbadada",
-          "quantity": 2,
+          "quantity": 5,
           "completed": false
         }
       ],
-      "createdAt": "2026-11-13T07:21:40.742Z",
-      "id": "OphT4SlmaLc"
+      "createdAt": "2026-11-13T09:40:24.858Z",
+      "id": "livKpcpgzms"
     },
     {
       "userId": "aqIvBFzvkas",
-      "name": "Weekly shopping",
+      "name": "grosa",
       "notes": "",
-      "category": "Groceriey",
-      "items": [],
-      "createdAt": "2026-11-13T07:24:24.445Z",
-      "id": "ipeF9I-9auY"
+      "category": "Fre",
+      "items": [
+        {
+          "id": "1794563043722",
+          "name": "milk",
+          "quantity": 3,
+          "completed": true
+        }
+      ],
+      "createdAt": "2026-11-13T09:43:53.242Z",
+      "id": "u-Vvw5772FQ"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

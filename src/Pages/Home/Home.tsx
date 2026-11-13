@@ -269,7 +269,7 @@ const Home = () => {
                   id={list.id}
                   name={list.name}
                   items={list.items}
-                  catergory={list.category}
+                  category={list.category}
                   onAddItem={handleAddItem}
                   onEditItem={handleEditItem}
                 />

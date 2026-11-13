@@ -1,50 +1,122 @@
 .list {
-  background: white;
-  border: 1px solid #e5e5e5;
-  border-radius: 6px;
-  padding: 18px 20px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.list:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.07);
 }
 
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
 }
 
 .header h2 {
-  margin: 0 0 5px;
-  font-size: 15px;
-  color: #333;
+  width: 100%;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
 }
 
-.header p {
-  margin: 0;
-  font-size: 11px;
-  color: #999;
+.header h3 {
+  flex: 1;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-light);
+}
+
+.empty {
+  padding: 25px 0;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-light);
 }
 
 .items {
-  margin-top: 15px;
-  border-top: 1px solid #eee;
+  margin-top: 8px;
 }
 
 .item {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  padding: 12px 0;
-  border-bottom: 1px solid #eee;
-
-  font-size: 13px;
-  color: #333;
+  gap: 12px;
+  padding: 15px 0;
+  border-bottom: 1px solid #f0f3f0;
 }
+
+.item:last-child {
+  border-bottom: none;
+}
+
 .itemInfo {
   display: flex;
-  gap: 20px;
-  flex: 1;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.itemLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.itemLabel input[type="checkbox"] {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.itemName {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.completed {
+  font-size: 14px;
+  font-weight: 500;
+  color: #a0aaa1;
+  text-decoration: line-through;
+}
+
+.quantity {
+  font-size: 12px;
+  color: var(--text-light);
 }
 
 .actions {
   display: flex;
-  gap: 6px;
+  align-items: center;
+  gap: 8px;
+}
+
+@media (max-width: 480px) {
+  .list {
+    padding: 17px;
+  }
+
+  .item {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .actions {
+    width: 100%;
+  }
 }
