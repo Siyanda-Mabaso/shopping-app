@@ -1,252 +1,95 @@
-/* ============================================================
-   Home.module.css
-   ============================================================ */
 
-.home {
-  min-height: calc(100vh - 60px);
-  background-color: #f5f7f6;
-  padding: 20px 0 40px;
+/* Welcome section */
+
+.welcome {
+  margin-bottom: 30px;
 }
 
-.container {
-  width: 100%;
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 0 20px;
-  box-sizing: border-box;
+.welcome h1 {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  letter-spacing: -0.8px;
 }
 
-/* ============================================================
-   PAGE HEADER
-   ============================================================ */
+.welcome p {
+  font-size: 14px;
+  color: var(--text-light);
+}
 
-.pageHeader {
+/* Dashboard statistics */
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.statCard {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  margin-bottom: 20px;
+  gap: 16px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease;
 }
 
-.pageHeader h1 {
-  margin: 0 0 5px;
-  color: #252525;
-  font-size: 20px;
-  font-weight: 600;
+.statCard:hover {
+  transform: translateY(-3px);
 }
 
-.pageHeader p {
-  margin: 0;
-  color: #888;
-  font-size: 12px;
-}
-
-/* ============================================================
-   FORM
-   ============================================================ */
-
-.form {
-  background-color: white;
-  border: 1px solid #e5e5e5;
-  border-radius: 6px;
-  padding: 20px;
-  margin-bottom: 15px;
-}
-
-.form h2 {
-  margin: 0 0 15px;
-  color: #333;
-  font-size: 15px;
-  font-weight: 600;
-}
-
-.formButtons {
+.statIcon {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
   display: flex;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-/* ============================================================
-   EMPTY STATE
-   ============================================================ */
-
-.emptyState {
-  min-height: 165px;
-  background-color: white;
-  border: 1px solid #e5e5e5;
-  border-radius: 6px;
-
-  display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  text-align: center;
-  padding: 20px;
+  background: var(--primary-light);
+  border-radius: 12px;
+  font-size: 23px;
 }
 
-.cartIcon {
-  font-size: 30px;
-  margin-bottom: 5px;
+.statCard h2 {
+  font-size: 25px;
+  font-weight: 800;
+  margin-bottom: 4px;
 }
 
-.emptyState h2 {
-  margin: 0 0 8px;
-  font-size: 14px;
-  font-weight: 600;
-  color: #333;
-}
-
-.emptyState p {
-  max-width: 300px;
-  margin: 0;
-  font-size: 10px;
-  line-height: 1.5;
-  color: #999;
-}
-
-/* ============================================================
-   SHOPPING LISTS
-   ============================================================ */
-
-.listContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.shoppingList {
-  background-color: white;
-  border: 1px solid #e5e5e5;
-  border-radius: 6px;
-  padding: 18px 20px;
-}
-
-/* ============================================================
-   LIST HEADER
-   ============================================================ */
-
-.listHeader {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-}
-
-.listInfo h2 {
-  margin: 0 0 5px;
-  font-size: 15px;
-  font-weight: 600;
-  color: #333;
-}
-
-.listInfo p {
-  margin: 0;
-  font-size: 11px;
-  color: #999;
-}
-
-.listActions {
-  display: flex;
-  gap: 8px;
-}
-
-/* ============================================================
-   ITEMS
-   ============================================================ */
-
-.itemsContainer {
-  margin-top: 15px;
-  border-top: 1px solid #eeeeee;
-}
-
-.item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 0;
-  border-bottom: 1px solid #f1f1f1;
-}
-
-.item input[type="checkbox"] {
-  width: 16px;
-  height: 16px;
-  cursor: pointer;
-}
-
-.itemInfo,
-.itemCompleted {
-  flex: 1;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  gap: 10px;
-}
-
-.itemInfo span {
+.statCard p {
   font-size: 12px;
-  color: #333;
+  color: var(--text-light);
 }
 
-.itemInfo small {
-  color: #999;
-  font-size: 10px;
+/* Search section */
+
+.searchBox {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 15px 20px;
+  margin-bottom: 25px;
+  box-shadow: var(--shadow);
 }
 
-.itemCompleted span {
-  font-size: 12px;
-  color: #999;
-  text-decoration: line-through;
-}
+/* Responsive statistics */
 
-.itemCompleted small {
-  color: #aaa;
-  font-size: 10px;
-}
-
-.itemActions {
-  display: flex;
-  gap: 5px;
-}
-
-/* ============================================================
-   ADD ITEM
-   ============================================================ */
-
-.addItem {
-  margin-top: 12px;
-}
-
-/* ============================================================
-   MOBILE
-   ============================================================ */
-
-@media (max-width: 600px) {
-  .container {
-    padding: 0 15px;
+@media (max-width: 768px) {
+  .statsGrid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 30px;
   }
 
-  .pageHeader {
-    flex-direction: column;
-    align-items: flex-start;
+  .statCard {
+    padding: 17px;
   }
 
-  .listHeader {
-    align-items: flex-start;
-  }
-
-  .item {
-    flex-wrap: wrap;
-  }
-
-  .itemInfo,
-  .itemCompleted {
-    min-width: 150px;
-  }
-
-  .itemActions {
-    margin-left: 26px;
+  .welcome h1 {
+    font-size: 24px;
   }
 }

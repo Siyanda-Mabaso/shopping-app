@@ -19,37 +19,6 @@
   ],
   "lists": [
     {
-      "userId": "aqIvBFzvkas",
-      "name": "grosa",
-      "notes": "",
-      "category": "grosa",
-      "items": [
-        {
-          "id": "1794400675570",
-          "name": "chese",
-          "quantity": 5,
-          "completed": false
-        },
-        {
-          "id": "1794553104718",
-          "name": "milk",
-          "quantity": 3,
-          "completed": false
-        }
-      ],
-      "createdAt": "2026-09-09T12:18:37.580Z",
-      "id": "MEkZ4N1Lew8"
-    },
-    {
-      "userId": "aqIvBFzvkas",
-      "name": "grosa",
-      "notes": "",
-      "category": "yy",
-      "items": [],
-      "createdAt": "2026-09-09T12:19:21.692Z",
-      "id": "JbI1gLlu7lU"
-    },
-    {
       "userId": "LH5bDb_hYgU",
       "name": "grosa",
       "notes": "",
@@ -60,12 +29,40 @@
     },
     {
       "userId": "aqIvBFzvkas",
-      "name": "grosa",
+      "name": "Imvunulo",
       "notes": "",
-      "category": "cons",
+      "category": "Traditional attire",
+      "items": [
+        {
+          "id": "1794554539533",
+          "name": "Bheshu",
+          "quantity": 1,
+          "completed": false
+        },
+        {
+          "id": "1794554552773",
+          "name": "Umutsa",
+          "quantity": 5,
+          "completed": false
+        },
+        {
+          "id": "1794554566501",
+          "name": "imbadada",
+          "quantity": 2,
+          "completed": false
+        }
+      ],
+      "createdAt": "2026-11-13T07:21:40.742Z",
+      "id": "OphT4SlmaLc"
+    },
+    {
+      "userId": "aqIvBFzvkas",
+      "name": "Weekly shopping",
+      "notes": "",
+      "category": "Groceriey",
       "items": [],
-      "createdAt": "2026-11-11T12:37:44.649Z",
-      "id": "nZMvpX9NDVg"
+      "createdAt": "2026-11-13T07:24:24.445Z",
+      "id": "ipeF9I-9auY"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

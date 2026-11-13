@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -12,49 +13,53 @@ import type { RootState, AppDispatch } from "../../Store/store";
 import {
   fetchListsThunk,
   createShoppingListThunk,
-  
   type ShoppingItem,
 } from "../../ReduxSlice/shoppingListSlice";
-
-
 
 import styles from "./Home.module.css";
 
 const Home = () => {
-
   const dispatch = useDispatch<AppDispatch>();
 
   // Get shopping lists from Redux
   const { lists, loading } = useSelector(
     (state: RootState) => state.shoppingLists
   );
-    //Search 
-   const [searchQuery, setSearchQuery] = useState("")
-   const filteredLinks = lists.filter(list =>
-    list.name.toLowerCase().includes(searchQuery.toLowerCase())
-   )
 
   // Get logged-in user
   const user = useSelector(
     (state: RootState) => state.login.user
   );
 
+  // Search
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const filteredLists = lists.filter((list) =>
+    list.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  // Dashboard statistics
+  const totalLists = lists.length;
+
+  const totalItems = lists.reduce(
+    (total, list) => total + (list.items?.length || 0),
+    0
+  );
+
+  const completedItems = lists.reduce(
+    (total, list) =>
+      total + (list.items?.filter((item) => item.completed).length || 0),
+    0
+  );
+
   // Create list form
-  const [showListForm, setShowListForm] =
-    useState(false);
-
-  const [listName, setListName] =
-    useState("");
-
-      const [category, setCategory] =
-    useState("");
+  const [showListForm, setShowListForm] = useState(false);
+  const [listName, setListName] = useState("");
+  const [category, setCategory] = useState("");
 
   // Add/Edit item modal
-  const [selectedListId, setSelectedListId] =
-    useState<string | null>(null);
-
-  const [editingItem, setEditingItem] =
-    useState<ShoppingItem | null>(null);
+  const [selectedListId, setSelectedListId] = useState<string | null>(null);
+  const [editingItem, setEditingItem] = useState<ShoppingItem | null>(null);
 
   // Load shopping lists
   useEffect(() => {
@@ -71,7 +76,6 @@ const Home = () => {
 
     if (!listName.trim() || !user?.id) return;
 
-   
     await dispatch(
       createShoppingListThunk({
         userId: user.id,
@@ -109,38 +113,66 @@ const Home = () => {
     setEditingItem(null);
   };
 
-
   return (
     <>
-    <div>
-         <Input
-                id="search"
-                label="Search Bar"
-                placeholder="Search...."
-                value={searchQuery}
-                onChange={(e) =>
-                  setSearchQuery(e.target.value)
-                }
-              />
-    </div>
       <Header />
 
       <main className={styles.home}>
         <div className={styles.container}>
 
+          {/* WELCOME SECTION */}
+          <section className={styles.welcome}>
+            <div>
+              <h1>
+                Welcome back, {user?.name || "Shopper"}! 👋
+              </h1>
+
+              <p>
+                Manage your shopping lists and keep everything organised.
+              </p>
+            </div>
+          </section>
+
+          {/* STATISTICS */}
+          <section className={styles.statsGrid}>
+
+            <div className={styles.statCard}>
+              <div className={styles.statIcon}>🛒</div>
+              <div>
+                <h2>{totalLists}</h2>
+                <p>Shopping Lists</p>
+              </div>
+            </div>
+
+            <div className={styles.statCard}>
+              <div className={styles.statIcon}>📦</div>
+              <div>
+                <h2>{totalItems}</h2>
+                <p>Total Items</p>
+              </div>
+            </div>
+
+            <div className={styles.statCard}>
+              <div className={styles.statIcon}>✅</div>
+              <div>
+                <h2>{completedItems}</h2>
+                <p>Completed Items</p>
+              </div>
+            </div>
+
+          </section>
+
           {/* PAGE HEADER */}
           <div className={styles.pageHeader}>
             <div>
               <h1>My Shopping Lists</h1>
-
-              <p>
-                Keep track of everything you need to buy.
-              </p>
+              <p>Keep track of everything you need to buy.</p>
             </div>
 
             <Button
               onClick={() => {
                 setListName("");
+                setCategory("");
                 setShowListForm(true);
               }}
             >
@@ -148,8 +180,18 @@ const Home = () => {
             </Button>
           </div>
 
-          {/* CREATE LIST FORM */}
+          {/* SEARCH BAR */}
+          <div className={styles.searchBox}>
+            <Input
+              id="search"
+              label="Search Shopping Lists"
+              placeholder="Search by list name..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </div>
 
+          {/* CREATE LIST FORM */}
           {showListForm && (
             <form
               className={styles.form}
@@ -162,25 +204,19 @@ const Home = () => {
                 label="List Name"
                 placeholder="e.g. Weekly Shopping"
                 value={listName}
-                onChange={(e) =>
-                  setListName(e.target.value)
-                }
+                onChange={(e) => setListName(e.target.value)}
               />
-                 <Input
-                id="list-name"
+
+              <Input
+                id="category"
                 label="Category"
-                placeholder="e.g. Cosme"
+                placeholder="e.g. Groceries, Cosmetics"
                 value={category}
-                onChange={(e) =>
-                  setCategory(e.target.value)
-                }
+                onChange={(e) => setCategory(e.target.value)}
               />
 
               <div className={styles.formButtons}>
-                <Button
-                  type="submit"
-                  disabled={loading}
-                >
+                <Button type="submit" disabled={loading}>
                   Create
                 </Button>
 
@@ -189,6 +225,7 @@ const Home = () => {
                   onClick={() => {
                     setShowListForm(false);
                     setListName("");
+                    setCategory("");
                   }}
                 >
                   Cancel
@@ -198,11 +235,13 @@ const Home = () => {
           )}
 
           {/* SHOPPING LISTS */}
-          {lists.length === 0 ? (
+          {loading ? (
             <div className={styles.emptyState}>
-              <div className={styles.cartIcon}>
-                🛒
-              </div>
+              <h2>Loading your shopping lists...</h2>
+            </div>
+          ) : lists.length === 0 ? (
+            <div className={styles.emptyState}>
+              <div className={styles.cartIcon}>🛒</div>
 
               <h2>No Shopping Lists Yet</h2>
 
@@ -211,9 +250,20 @@ const Home = () => {
                 Start by adding your first list.
               </p>
             </div>
+          ) : filteredLists.length === 0 ? (
+            <div className={styles.emptyState}>
+              <div className={styles.cartIcon}>🔍</div>
+
+              <h2>No Results Found</h2>
+
+              <p>
+                We couldn't find any shopping lists matching
+                "{searchQuery}".
+              </p>
+            </div>
           ) : (
             <div className={styles.listContainer}>
-              {filteredLinks.map((list) => (
+              {filteredLists.map((list) => (
                 <List
                   key={list.id}
                   id={list.id}
@@ -226,6 +276,7 @@ const Home = () => {
               ))}
             </div>
           )}
+
         </div>
       </main>
 

@@ -1,39 +1,50 @@
-import { Link } from "react-router-dom";
+
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import Button from "../Button/Button";
 import styles from "./Header.module.css";
 import { logout } from "../../ReduxSlice/LoginSlice";
-import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-
-
 
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const handleLogout=() => {
+
+  const handleLogout = () => {
     dispatch(logout());
     navigate("/login");
-  }
+  };
+
   return (
     <header className={styles.header}>
       <div className={styles.container}>
 
-       
-
-        <nav className={styles.navigation}>
-           <Link to="/home" className={styles.logo}>
-          🛒 ShopList
+        {/* Logo */}
+        <Link to="/home" className={styles.logo}>
+          <span className={styles.logoIcon}>🛒</span>
+          <span>ShopList</span>
         </Link>
-        
-          <Link to="/home" className={styles.navLink}>
+
+        {/* Navigation */}
+        <nav className={styles.navigation}>
+          <NavLink
+            to="/home"
+            className={({ isActive }) =>
+              isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
+            }
+          >
             Home
-          </Link>
+          </NavLink>
 
-          <Link to="/profile" className={styles.navLink}>
+          <NavLink
+            to="/profile"
+            className={({ isActive }) =>
+              isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
+            }
+          >
             Profile
-          </Link>
+          </NavLink>
 
-          <Button variant="secondary" onClick={handleLogout}   >
+          <Button variant="secondary" onClick={handleLogout}>
             Logout
           </Button>
         </nav>
