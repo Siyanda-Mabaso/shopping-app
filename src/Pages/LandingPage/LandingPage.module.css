@@ -1,0 +1,63 @@
+.landingPage {
+  width: 100%;
+  min-height: 100vh;
+  background-image: url("/landing-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.signupButton,
+.loginButton {
+  width: 190px;
+  padding: 20px;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.signupButton {
+  background-color: #2e9b43;
+  color: white;
+  border: 2px solid #2e9b43;
+}
+
+.signupButton:hover {
+  background-color: #1b5e20;
+}
+
+.loginButton {
+  background-color: white;
+  color: #2e9b43;
+  border: 2px solid #2e9b43;
+}
+
+.loginButton:hover {
+  background-color: #e8f5e9;
+}
+
+@media (max-width: 500px) {
+  .buttons {
+    flex-direction: column;
+    width: 80%;
+  }
+
+  .signupButton,
+  .loginButton {
+    width: 100%;
+  }
+}
