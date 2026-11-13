@@ -18,11 +18,13 @@ const Header = () => {
     <header className={styles.header}>
       <div className={styles.container}>
 
-        <Link to="/home" className={styles.logo}>
-          🛒 ShopList
-        </Link>
+       
 
         <nav className={styles.navigation}>
+           <Link to="/home" className={styles.logo}>
+          🛒 ShopList
+        </Link>
+        
           <Link to="/home" className={styles.navLink}>
             Home
           </Link>
